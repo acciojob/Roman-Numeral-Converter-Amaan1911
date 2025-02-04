@@ -11,11 +11,12 @@ function convertToRoman(num) {
 
   //your code here
 	    let result = "";
+	  const values = Object.values(romanNumerals).sort((a, b) => b[1] - a[1]);
 
-    for (let i = 0; i < romanNumerals.length; i++) {
-        while (num >= romanNumerals[i].value) {
-            result += romanNumerals[i].numeral;
-            num -= romanNumerals[i].value;
+    for (let i = 0; i < values.length; i++) {
+        while (num >= values[i][1]) {
+            result += values[i][0];
+            num -= values[i][1];
         }
     }
 
