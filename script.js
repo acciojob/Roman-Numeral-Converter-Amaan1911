@@ -9,17 +9,19 @@ function convertToRoman(num) {
         6: ['I', 1]
     };
 
-    let result = "";
+let result = "";
 
-    // Convert object values into an array and sort them in descending order
-    const values = Object.values(romanNumerals).sort((a, b) => b[1] - a[1]);
+    for (let i = 0; i <= 6; i++) {
+        let [symbol, value] = romanNumerals[i];
 
-    for (let i = 0; i < values.length; i++) {
-        while (num >= values[i][1]) {
-            result += values[i][0];
-            num -= values[i][1];
+        while (num >= value) {
+            result += symbol;
+            num -= value;
         }
     }
 
     return result;
+
+
 }
+    
